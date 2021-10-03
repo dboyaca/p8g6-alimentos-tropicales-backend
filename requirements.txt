@@ -1,0 +1,5 @@
+Django
+djangorestframework
+djangorestframewor-simplejwt
+numpy
+psycopg2-binary
