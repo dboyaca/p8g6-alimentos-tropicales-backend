@@ -98,12 +98,8 @@ WSGI_APPLICATION = 'alimentosTropicalesProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql-psycopg2',
-        'NAME' : 'p8gp6-Alimentos_Tropicales',
-        'USER' : 'postgress',
-        'PASSWORD' : 'postgress',
-        'HOST' : 'localhost',
-        'PORT' : '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
