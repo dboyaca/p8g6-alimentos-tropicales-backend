@@ -3,7 +3,7 @@ from .pais import Pais
 from .region import Region
 
 class Zona(models.Model):
-    id              = models.AutoField(primarykey=True)
-    pais            = models.ForeignKey(Pais,on_delete=models.CASCADE, on_update=models.CASCADE)
-    region          = models.ForeignKey(Region,on_delete=models.CASCADE, on_update=models.CASCADE)
+    id              = models.AutoField(primary_key=True)
+    id_pais            = models.ForeignKey(Pais,on_delete=models.CASCADE)
+    id_region          = models.ForeignKey(Region,on_delete=models.CASCADE)
     
