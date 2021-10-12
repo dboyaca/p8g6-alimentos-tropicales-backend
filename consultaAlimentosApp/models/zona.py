@@ -7,3 +7,5 @@ class Zona(models.Model):
     id_pais            = models.ForeignKey(Pais,on_delete=models.CASCADE)
     id_region          = models.ForeignKey(Region,on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.id
