@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from consultaAlimentosApp import views
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', TokenObtainPairView.as_view()), #SW que me da los tokens de acceso y de refresh pal usuario
+    path('refresh/', TokenRefreshView.as_view()), #Refrescamos el token de acceso con esta vista
+    path('user/', views.userCreateView.UserCreateView.as_view()),
+    path('user/<int:pk>/', views.userDetailView.UserDetailView.as_view()),
+    path('cultivo/create/', views.cultivoCreateView.CultivoCreateView.as_view()),
 ]
