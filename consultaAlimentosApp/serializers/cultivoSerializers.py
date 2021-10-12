@@ -1,12 +1,9 @@
-from rest_framework                                 import serializers
+from rest_framework                                               import serializers
 
-from consultaAlimentosApp.models.cultivo            import Cultivo
-from consultaAlimentosApp.models.alimentoTropical   import AlimentoTropical
-from consultaAlimentosApp.models.zona               import Zona
-
-
-
-from django.db                                      import connection
+from consultaAlimentosApp.models.cultivo                          import Cultivo
+from consultaAlimentosApp.models.alimentoTropical                 import AlimentoTropical
+from consultaAlimentosApp.serializers.alimentoTropicalSerializers import AlimentoTropicalSerializer
+from django.db                                                    import connection
 
 
 #---------------------------------------------------------------------------------
@@ -40,17 +37,18 @@ def custom_sql(idCultivo):
 #---------------------------------------------------------------------------------
 
 class CultivoSerializer(serializers.ModelSerializer):
+    alimento_tropical = AlimentoTropicalSerializer() #Acá estaba el fallo
     class Meta:
         model = Cultivo
         fields = ['id', 'alimentoSembrado', 'hectareas','fecha','zonaCultivo']
 
     def to_representation(self, obj):
         cultivo = Cultivo.objects.get(id = obj.id)
-        alimento_tropical = AlimentoTropical.objects.get(id=obj.alimentoSembrado)
+        alimento_tropical = AlimentoTropical.objects.get(id=cultivo.alimentoSembrado.id)
         datosZona = custom_sql(obj.id)
 
         return {
-            'id'            : cultivo.id,
+            'id' : cultivo.id,
             'alimento_sembrado' : {
                 'nombre'        : alimento_tropical.nombre,
                 'proteina'      : alimento_tropical.proteinaPromedio,
@@ -64,9 +62,3 @@ class CultivoSerializer(serializers.ModelSerializer):
                 'region'        : datosZona['region']
             }
         }
-
-
-
-        
-
-        

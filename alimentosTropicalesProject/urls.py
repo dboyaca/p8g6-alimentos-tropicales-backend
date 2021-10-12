@@ -25,4 +25,6 @@ urlpatterns = [
     path('user/', views.userCreateView.UserCreateView.as_view()),
     path('user/<int:pk>/', views.userDetailView.UserDetailView.as_view()),
     path('cultivo/create/', views.cultivoCreateView.CultivoCreateView.as_view()),
+    path('cultivo/<int:user>/<int:pk>/', views.cultivoRUDView.CultivoDetailView.as_view()),
+    path('cultivo/<int:user>/', views.cultivoRUDView.CultivosView.as_view())
 ]
