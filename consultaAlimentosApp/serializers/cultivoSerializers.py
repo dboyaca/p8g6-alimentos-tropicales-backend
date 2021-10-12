@@ -40,7 +40,7 @@ class CultivoSerializer(serializers.ModelSerializer):
     alimento_tropical = AlimentoTropicalSerializer() #Acá estaba el fallo
     class Meta:
         model = Cultivo
-        fields = ['id', 'alimentoSembrado', 'hectareas','fecha','zonaCultivo']
+        fields = ['id', 'alimento_tropical','hectareas','fecha','zonaCultivo']
 
     def to_representation(self, obj):
         cultivo = Cultivo.objects.get(id = obj.id)
