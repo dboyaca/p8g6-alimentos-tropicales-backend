@@ -11,3 +11,4 @@ class AlimentoTropical(models.Model):
 	vitaminaC			= models.BooleanField(default=False)
 	vitaminaD			= models.BooleanField(default=False)
 	hierro				= models.BooleanField(default=False)
+	

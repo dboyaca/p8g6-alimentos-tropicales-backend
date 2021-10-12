@@ -8,3 +8,9 @@ class Cultivo(models.Model):
     zonaCultivo             = models.ForeignKey(Zona, on_delete=models.CASCADE)
     hectareas               = models.DecimalField(max_digits=5, decimal_places=2)
     fecha                   = models.DateField(auto_now_add=True)
+
+    def getId(self):
+        return self.id
+
+    def getAlimentoSembrado(self):
+        return int(self.alimentoSembrado)

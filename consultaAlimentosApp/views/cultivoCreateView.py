@@ -8,7 +8,7 @@ from consultaAlimentosApp.models.pais                           import Pais
 from consultaAlimentosApp.models.region                         import Region
 from consultaAlimentosApp.models.zona                           import Zona
 
-from consultaAlimentosApp.serializers.cultivoSerializers import CultivoSerializer
+from consultaAlimentosApp.serializers.cultivoSerializers        import CultivoSerializer
 
 '''Recuerde que aquí le tengo que enviar en la URL el parámetro de filtro'''
 class CultivoCreateView(generics.CreateAPIView):
