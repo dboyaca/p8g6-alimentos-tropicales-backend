@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username', 'password', 'name', 'email']
         
     def create(self, validated_data):
-        userInstance = User.objects.create(**validated_data) #Le mando los datos ya validados desde el form HTML
+        userInstance = User.objects.create(**validated_data)
         return userInstance
 
     def to_representation(self, obj):
@@ -19,5 +19,3 @@ class UserSerializer(serializers.ModelSerializer):
             'name'    : user.name,
             'email'   : user.email,
         }
-
-    

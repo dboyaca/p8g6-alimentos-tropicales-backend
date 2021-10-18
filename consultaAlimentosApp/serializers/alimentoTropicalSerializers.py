@@ -9,8 +9,6 @@ class AlimentoTropicalSerializer(serializers.ModelSerializer):
         fields = ['id', 'nombre', 'pesoPromUnidad','grasaPromedio','proteinaPromedio',
                 'carboPromedio','vitaminaC','vitaminaD','hierro']
 
-
-
     """--Acá me traduce del modelo al JSON"""
     """--obj: Objeto del modelo a serializar"""
     def to_representation(self, obj):
@@ -19,14 +17,7 @@ class AlimentoTropicalSerializer(serializers.ModelSerializer):
 
         return {
             "id"                : alimentoTropical.id,
-            "nombre"            : alimentoTropical.nombre,
-            "pesoPromUnidad"    : alimentoTropical.pesoPromUnidad,
-            "grasaPromedio"     : alimentoTropical.grasaPromedio,
-            "proteinaPromedio"  : alimentoTropical.proteinaPrmedio,
-            "carboPromedio"     : alimentoTropical.carboPromedio,
-            "vitminaC"          : alimentoTropical.vitaminaC,
-            "vitaminaD"         : alimentoTropical.vitaminaD,
-            "hierro"            : alimentoTropical.hierro
+            "nombre"            : alimentoTropical.nombre
         }
 
 
