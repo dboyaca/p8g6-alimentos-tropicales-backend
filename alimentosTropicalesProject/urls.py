@@ -30,5 +30,6 @@ urlpatterns = [
     path('cultivo/update/<int:user>/<int:pk>/', views.cultivoRUDView.CultivoUpdateView.as_view()),
     path('cultivo/remove/<int:user>/<int:pk>/', views.cultivoRUDView.CultivoDeleteView.as_view()),
     path('paises/<int:user>/', views.paisListView.PaisesView.as_view()),
-    path('regiones/<int:user>/', views.regionListView.RegionesView.as_view())
+    path('regiones/<int:user>/', views.regionListView.RegionesView.as_view()),
+    path('alimentos/<int:user>/', views.alimentoListView.AlimentosView.as_view())
 ]

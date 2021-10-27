@@ -4,3 +4,4 @@ djangorestframework-simplejwt
 numpy
 psycopg2-binary
 mysqlclient
+django-cors-headers
