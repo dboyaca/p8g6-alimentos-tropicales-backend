@@ -22,7 +22,7 @@ def dictfetchall(cursor):
     de pasar por la tabla zona"""
 def custom_sql(idCultivo):
     with connection.cursor() as cursor:
-            sql = "SELECT Cultivo.id, Pais.nombre AS pais, Region.nombre AS region \
+            sql = "SELECT Cultivo.id, Pais.nombre AS pais, Region.nombre AS region, Zona.id AS zona \
                     FROM consultaalimentosapp_cultivo AS Cultivo \
                     JOIN consultaalimentosapp_zona AS Zona ON Cultivo.zonaCultivo_id = Zona.id \
                     JOIN consultaalimentosapp_pais AS Pais ON Zona.id_pais_id = Pais.id  \
@@ -50,6 +50,7 @@ class CultivoSerializer(serializers.ModelSerializer):
         return {
             'id' : cultivo.id,
             'alimento_sembrado' : {
+                'id_alimento'   : alimento_tropical.id,
                 'nombre'        : alimento_tropical.nombre,
                 'proteina'      : alimento_tropical.proteinaPromedio,
                 'grasa'         : alimento_tropical.grasaPromedio,
@@ -58,6 +59,7 @@ class CultivoSerializer(serializers.ModelSerializer):
             'hectareas'     : cultivo.hectareas,
             'fecha'         : cultivo.fecha,
             'zonaCultivo'       : {
+                'zona'          : datosZona['zona'],
                 'pais'          : datosZona['pais'],
                 'region'        : datosZona['region']
             }
