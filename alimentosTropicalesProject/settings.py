@@ -101,15 +101,15 @@ WSGI_APPLICATION = 'alimentosTropicalesProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'g6_alimentos_tropicales',
-        'USER' : 'root',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'p8g6_alimentos_tropicales',
+        'USER' : 'postgres',
         'PASSWORD' : '123456',
         'HOST' : 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
-
+ 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

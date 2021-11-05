@@ -22,12 +22,12 @@ def dictfetchall(cursor):
     de pasar por la tabla zona"""
 def custom_sql(idCultivo):
     with connection.cursor() as cursor:
-            sql = "SELECT Cultivo.id, Pais.nombre AS pais, Region.nombre AS region, Zona.id AS zona \
-                    FROM consultaalimentosapp_cultivo AS Cultivo \
-                    JOIN consultaalimentosapp_zona AS Zona ON Cultivo.zonaCultivo_id = Zona.id \
-                    JOIN consultaalimentosapp_pais AS Pais ON Zona.id_pais_id = Pais.id  \
-                    JOIN consultaalimentosapp_region AS Region ON Zona.id_region_id = Region.id \
-                    WHERE Cultivo.id = %s;"
+            sql = " SELECT Cultivo.\"id\", Pais.\"nombre\" as pais, Region.\"nombre\" as region, Zona.\"id\" as zona \
+                    FROM \"consultaAlimentosApp_cultivo\" AS Cultivo  \
+                    INNER JOIN \"consultaAlimentosApp_zona\" AS Zona ON (Cultivo.\"zonaCultivo_id\" = Zona.\"id\") \
+                    INNER JOIN \"consultaAlimentosApp_pais\" as Pais ON (Zona.\"id_pais_id\" = Pais.\"id\")  \
+                    INNER JOIN \"consultaAlimentosApp_region\" as Region ON (Zona.\"id_region_id\" = Region.\"id\") \
+                    WHERE Cultivo.\"id\" = %s; "
             cursor.execute(sql, ((idCultivo), ))
             resultSet = dictfetchall(cursor) # [{'id': 9, 'pais': 'Colombia', 'region': 'Boyacá'}]
     return resultSet[0]
@@ -45,6 +45,7 @@ class CultivoSerializer(serializers.ModelSerializer):
     def to_representation(self, obj):
         cultivo = Cultivo.objects.get(id = obj.id)
         alimento_tropical = AlimentoTropical.objects.get(id=cultivo.alimentoSembrado.id)
+        print("Aquí voy pa la zona perro")
         datosZona = custom_sql(obj.id)
 
         return {

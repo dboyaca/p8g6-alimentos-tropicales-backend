@@ -1,7 +1,9 @@
-Django
-djangorestframework
-djangorestframework-simplejwt
-numpy
+Django==3.2.8
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.8.0
+django-cors-headers==3.10.0
 psycopg2-binary
 mysqlclient
-django-cors-headers
+psycopg2-binary==2.9.1
+gunicorn
+django-heroku
