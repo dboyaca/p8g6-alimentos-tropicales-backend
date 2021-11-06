@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^6!5!n8pa)it0$wtpt60qkg#tsb2mndae7jc%0vzy8+%09^nsz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'http://localhost:8080/',]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'http://localhost:8080/','ec2-34-200-161-87.compute-1.amazonaws.com']
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'alimentosTropicalesProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'p8g6_alimentos_tropicales',
-        'USER' : 'postgres',
-        'PASSWORD' : '123456',
-        'HOST' : 'localhost',
+        'NAME': 'db9nd5tj3tt10p',
+        'USER' : 'tolqctwbcukpuh',
+        'PASSWORD' : '649b905651318d004afd31a9c8e8aff88644af0493995c0c9c91cc6b031e6384',
+        'HOST' : 'ec2-34-200-161-87.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
